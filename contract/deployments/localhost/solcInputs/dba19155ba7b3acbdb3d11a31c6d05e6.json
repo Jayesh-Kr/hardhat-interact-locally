@@ -1,0 +1,36 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "contracts/Trail.sol": {
+      "content": "// SPDX-License-Identifier: UNLICENSED\npragma solidity ^0.8.28;\n\n// Uncomment this line to use console.log\n// import \"hardhat/console.sol\";\n\ncontract Trail {\n    address public owner;\n\n    constructor() {\n        owner = msg.sender;\n    }\n    \n    struct Student {\n        address user;\n        string name;\n        uint rollno;\n        uint id;\n    }\n    mapping(address => Student[]) public child;\n\n    function setChild(string memory _name, uint _rollno) public {\n        child[msg.sender].push(Student(msg.sender,_name,_rollno,child[msg.sender].length));\n    }\n\n    function getChild() public view returns(Student[] memory) {\n        return child[msg.sender];\n    }\n\n    function caller() public view returns(address) {\n        return msg.sender;\n    }\n\n    function getParticular(uint _id) public view returns(Student memory) {\n        return child[msg.sender][_id];\n    }\n    \n}"
+    }
+  },
+  "settings": {
+    "evmVersion": "paris",
+    "optimizer": {
+      "enabled": false,
+      "runs": 200
+    },
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode",
+          "evm.methodIdentifiers",
+          "metadata",
+          "devdoc",
+          "userdoc",
+          "storageLayout",
+          "evm.gasEstimates"
+        ],
+        "": [
+          "ast"
+        ]
+      }
+    },
+    "metadata": {
+      "useLiteralContent": true
+    }
+  }
+}
