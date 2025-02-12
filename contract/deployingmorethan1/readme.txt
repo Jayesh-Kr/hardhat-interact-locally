@@ -11,3 +11,12 @@ When using - npx hardhat deploy
     --> deploy/04_deploy_contractD.js
 
 npx hardhat deploy
+
+
+
+
+
+When using - npx hardhat run scripts/deploy.js --network localhost
+    --> Inside script Folder -> deploy.js
+
+then run npx hardhat run scripts/deploy.js --network localhost
