@@ -4,6 +4,7 @@ import { config } from "../config";
 import { WagmiProvider } from "wagmi";
 import { LandingPage } from "./LandingPage";
 import InteractWithContract from "./InteractWithContract";
+import XContractInteract from "./XContractInteract";
 
 const queryClient = new QueryClient();
 const App = () => {
@@ -14,7 +15,8 @@ const App = () => {
         <br/>
         <hr/>
         <hr/>
-        <InteractWithContract/>
+        {/* <InteractWithContract/> */}
+        <XContractInteract/>
       </QueryClientProvider>
     </WagmiProvider>
   );
